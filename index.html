@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uyir Kaval</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Uyir <span>Kaval</span></h1>
+  <p>Get help from volunteers near you, or become one.</p>
+  <nav role="tablist">
+    <button role="tab" data-tab="user" aria-selected="true">I need help</button>
+    <button role="tab" data-tab="vol" aria-selected="false">Volunteer</button>
+    <button role="tab" data-tab="admin" aria-selected="false">Admin</button>
+  </nav>
+</header>
+<main>
+<section id="user" class="on">
+  <div class="grid">
+    <div class="card">
+      <h2>Request help</h2>
+      <label for="un">Your name</label><input id="un" autocomplete="name">
+      <label for="up">Phone number</label><input id="up" type="tel" autocomplete="tel">
+      <label for="un2">What do you need?</label>
+      <select id="un2"><option>Medical help</option><option>Food</option><option>Shelter</option><option>Blood donor</option><option>Transport</option><option>Other</option></select>
+      <label for="ud">Details</label><textarea id="ud"></textarea>
+      <div class="row">
+        <button class="btn sos" id="locMe">Share my location</button>
+        <button class="btn ghost" id="demoMe">Use demo location</button>
+        <button class="btn ghost" id="track">Track live: off</button>
+      </div>
+      <div class="coord" id="ucoord">Location not shared yet.</div>
+    </div>
+    <div class="card">
+      <h2>Volunteers near you</h2>
+      <div id="plot"></div>
+      <ul id="near"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="vol">
+  <div class="grid">
+    <form class="card" id="vf">
+      <h2>Enroll as a volunteer</h2>
+      <label for="vn">Full name</label><input id="vn" required autocomplete="name">
+      <label for="vp">Phone number</label><input id="vp" type="tel" required autocomplete="tel">
+      <label for="vs">How can you help?</label>
+      <select id="vs"><option>First aid</option><option>Blood donor</option><option>Food and supplies</option><option>Transport</option><option>Shelter</option><option>General help</option></select>
+      <label for="vlat">Your location (latitude, longitude)</label>
+      <div class="row" style="margin-top:0"><input id="vlat" placeholder="Latitude" required inputmode="decimal"><input id="vlng" placeholder="Longitude" required inputmode="decimal"></div>
+      <div class="row">
+        <button type="button" class="btn ghost" id="vloc">Use my GPS</button>
+        <button type="button" class="btn ghost" id="vdemo">Use demo location</button>
+      </div>
+      <div class="row"><button class="btn vol">Enroll</button></div>
+    </form>
+    <div class="card">
+      <h2>How it works</h2>
+      <p>After you enroll, an admin verifies your details. Verified volunteers appear to people who need help nearby, sorted by distance from them.</p>
+      <p class="coord">This is a prototype. Data stays in this browser until a database is connected.</p>
+    </div>
+  </div>
+</section>
+
+<section id="admin">
+  <div id="adminBody"></div>
+</section>
+</main>
+<div id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
